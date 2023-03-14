@@ -1,0 +1,40 @@
+<div class="row row-cols-2">
+  <div class="col">
+    <h4>Client Name : <span class="text-primary">{{clientName}}</span></h4>
+  </div>
+  <div class="col d-flex justify-content-end">
+    <h4>Store Name : <span class="text-primary">{{store.name}}</span></h4>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <ng-container *ngFor="let item of productlist">
+    <div class="m-2 card" style="width: 12rem;" *ngIf="item.quantity==0?false:true">
+      <div class="d-flex justify-content-end text-center float-end ">
+        <span class="position-absolute text-bg-warning w-25" *ngIf="item.discount==0 ? false:true">OFFER</span>
+        <img [src]="item.imgUrl" class="card-img-top" style=" height:5rem" alt="...">
+
+      </div>
+
+      <div class="card-body" [ngStyle]="{'background-color': item.quantity==1?'yellow':'default'}">
+        <h5 class="card-title d-flex flex-nowrap">{{item.name | uppercase}}</h5>
+        <p class="card-text">Some quick example text to build on the card title<span
+            class="card-text text-bg-danger">{{item.discount}}</span></p>
+        <div class="row d-flex flex-nowrap">
+
+          <span class="col-6 card-text d-flex justify-content-lg-start text-bg-success"
+            [ngStyle]="{'text-decoration':item.discount > 0 ? 'line-through' : 'none' }">
+            {{item.price | currency}}</span>
+          <p class="col-6 card-text text-bg-warning ">Qty : {{item.quantity}}</p>
+        </div>
+        <div class="row d-flex justify-content-end">
+          <span class="col-12">{{item.purchaseDate | date:'longDate'}}</span>
+          <a href="#" class="col-4 m-2 btn btn-primary" (click)="Buy(item)">Buy</a>
+          <!-- <a href="#" class="col-4 m-2 btn btn-primary"
+            [ngStyle]="{'background-color': item.quantity==1?'yellow':'default'}" (click)="Buy(item)">Buy</a>-->
+        </div>
+
+
+      </div>
+    </div>
+  </ng-container>
+</div>
