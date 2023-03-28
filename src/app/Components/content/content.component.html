@@ -1,0 +1,14 @@
+<div class="row row-cols-4">
+  <div *ngFor="let item of prdItems" class="col m-3">
+    <div class="card" style="width: 18rem;">
+      <img src="{{item.imgUrl}}" class="card-img-top rounded-circle w-50" style=" height:10rem" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+        </p>
+        <a href="#" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+</div>
