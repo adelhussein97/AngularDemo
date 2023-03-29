@@ -1,0 +1,24 @@
+<div BGColor="aqua" class="row row-cols-4">
+  <div class="col m-3">
+    <div class="card" style="width: 18rem;">
+      <img src="{{productReturned?.imgUrl}}" imgHoverShadow class="card-img-top rounded-circle w-50"
+        style=" height:10rem" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{productReturned?.name}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+
+        </p>
+        <!-- <input class="col-12 mt-2" type="number" value="0" name="qty" id="qty" min="0" [max]="item.quantity" #qtyPrd> -->
+        <!-- <a href="#" class="col m-2 btn btn-primary" (click)="addItemtocart(productReturned,+qtyPrd.value)">Add To Cart</a>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <p>Year : {{Birthdate | calcBirthdate:'YY'}}</p>
+  <p>Month : {{Birthdate | calcBirthdate:'MM'}}</p>
+  <p>Full Date :{{Birthdate | calcBirthdate:'FullDate'}}</p>
+  <p>Format Credit Card :{{creditCard | formatCardvisa}}</p>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Icategory } from 'src/app/Models/icategory';
+import { Iproduct } from 'src/app/Models/iproduct';
 
 @Component({
   selector: 'app-order',
@@ -8,7 +9,8 @@ import { Icategory } from 'src/app/Models/icategory';
 })
 export class OrderComponent {
 
-  category: Icategory[]=[]
+  category: Icategory[] = [];
+  totalpriceChange: number = 0;
   selectedCategoryID:number=0
   constructor()
   {
@@ -19,6 +21,12 @@ export class OrderComponent {
         { id: 3, name: "TVs" },
         { id: 4, name: "Computers" },
       ];
+  }
+
+  // Calling Event To Print total Price
+  ReceiveTotalPrice(total:number)
+  {
+    this.totalpriceChange=total;
   }
 
 }

@@ -1,14 +1,16 @@
 <div class="row m-3">
-  <div class="col-3">
+  <div class="col-2">
     <label for="category">Select Filter Category</label>
   </div>
-  <div class="col-9">
+  <div class="col-7">
     <select name="category" id="catgory" class="form-control" [(ngModel)]="selectedCategoryID">
       <option value="0">ALL</option>
       <option [value]="item.id" *ngFor="let item of category">{{item.name}}</option>
     </select>
   </div>
+
 </div>
 <hr class="fs-3 m-2">
 <span>{{selectedCategoryID}}</span>
-<app-product></app-product>
+<!-- bind Value of Category ID -->
+<app-product [selectedCatID]="selectedCategoryID" (totalcartPriceEvent)="ReceiveTotalPrice($event)"></app-product>

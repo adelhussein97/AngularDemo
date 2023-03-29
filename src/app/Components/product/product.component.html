@@ -1,13 +1,61 @@
-<div class="row row-cols-2">
+<div class="row row-cols-3">
   <div class="col">
     <h4>Client Name : <span class="text-primary">{{clientName}}</span></h4>
   </div>
   <div class="col d-flex justify-content-end">
     <h4>Store Name : <span class="text-primary">{{store.name}}</span></h4>
   </div>
+  <!-- Cart -->
+  <div class="col d-flex justify-content-end">
+    <!-- Button trigger modal -->
+    <button type="button" class=" col-3 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Cart
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Your Cart</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Total Price</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cartList;let i=index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{item.name}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.price}}</td>
+                  <td>{{item.price*item.quantity}}</td>
+                  <td><button class="btn btn-danger" (click)="removeitem(item,+i)">X</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Checkout</button>
+            <span class="fs-3 text-bg-info" #totalpriceChild>Total Cart Price : {{totalcartPrice}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row d-flex justify-content-center">
-  <ng-container *ngFor="let item of productlist">
+  <ng-container *ngFor="let item of prdCatList">
     <div class="m-2 card" style="width: 12rem;" *ngIf="item.quantity==0?false:true">
       <div class="d-flex justify-content-end text-center float-end ">
         <span class="position-absolute text-bg-warning w-25" *ngIf="item.discount==0 ? false:true">OFFER</span>
@@ -27,8 +75,13 @@
           <p class="col-6 card-text text-bg-warning ">Qty : {{item.quantity}}</p>
         </div>
         <div class="row d-flex justify-content-end">
-          <span class="col-12">{{item.purchaseDate | date:'longDate'}}</span>
-          <a href="#" class="col-4 m-2 btn btn-primary" (click)="Buy(item)">Buy</a>
+          <!-- <span class="col-12">{{item.purchaseDate | date:'longDate'}}</span> -->
+          <input class="col-12 mt-2" type="number" value="0" name="qty" id="qty" min="0" [max]="item.quantity" #qtyPrd>
+          <a href="#" class="col m-2 btn btn-primary" (click)="addtocart(item,+qtyPrd.value)">Add To Cart</a>
+          <button href="#" class="col m-2 btn btn-warning" (click)="ProductDetails(item.id)">Details</button>
+          <a [title]="item.name + ' details'" [routerLink]="['/products', item.id]">
+            {{ item.name }}
+          </a>
           <!-- <a href="#" class="col-4 m-2 btn btn-primary"
             [ngStyle]="{'background-color': item.quantity==1?'yellow':'default'}" (click)="Buy(item)">Buy</a>-->
         </div>
