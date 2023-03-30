@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td><button href="#" class="col m-2 btn btn-primary" (click)="AddProduct()">Add</button></td>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Operations</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of prdList">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.name }}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.quantity}}</td>
+      <td>
+        <button href="#" class="col m-2 btn btn-success" (click)="ProductDetails(item.id)">Details</button>
+        <button href="#" class="col m-2 btn btn-warning" (click)="Edit_Products(item.id)">Edit</button>
+        <button href="#" class="col m-2 btn btn-danger" (click)="Delete_Products(item.id)">Delete</button>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>

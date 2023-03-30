@@ -5,8 +5,8 @@ export interface Iproduct
   quantity: number;
   price: number;
   categoryID: number;
-  imgUrl: string;
-  purchaseDate: Date;
+  imgUrl?: string;
+  purchaseDate?: Date;
   discount:number
 
 }

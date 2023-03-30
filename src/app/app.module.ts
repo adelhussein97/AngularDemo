@@ -19,6 +19,11 @@ import { BGColorDirective } from './Directives/bgcolor.directive';
 import { CalcBirthdatePipe } from './Pipes/calc-birthdate.pipe';
 import { FormatCardvisaPipe } from './Pipes/format-cardvisa.pipe';
 import { HttpClientModule} from '@angular/common/http';
+import { AddNewProductComponent } from './Components/Admin/add-new-product/add-new-product.component';
+import { EditProductComponent } from './Components/Admin/add-new-product/edit-product/edit-product.component';
+import { DeleteProductComponent } from './Components/Admin/add-new-product/delete-product/delete-product.component';
+import { AddProductComponent } from './Components/Admin/add-new-product/add-product/add-product.component';
+import { AllProductsComponent } from './Components/Admin/add-new-product/all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { HttpClientModule} from '@angular/common/http';
     BGColorDirective,
     CalcBirthdatePipe,
     FormatCardvisaPipe,
+    AddNewProductComponent,
+    EditProductComponent,
+    DeleteProductComponent,
+    AddProductComponent,
+    AllProductsComponent,
 
   ],
   imports: [

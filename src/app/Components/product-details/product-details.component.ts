@@ -29,7 +29,6 @@ export class ProductDetailsComponent implements OnInit
       : 0;
     // Traditional Method
     //let product=this.productService.getproductbyID( this.PrdID );
-
     // Get from API
     this.productApi.GetProductById( this.PrdID ).subscribe(data=> {this.productReturned=data});
     // if(product)

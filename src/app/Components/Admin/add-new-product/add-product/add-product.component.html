@@ -1,0 +1,46 @@
+<h1>Add New Product</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <form (ngSubmit)="AddProduct()" #ProductFormRef="ngForm">
+      <div class="text-danger"></div>
+      <div class="form-group">
+        <label class="control-label">Name</label>
+        <input type="text" required name="name" [(ngModel)]="prd.name" pattern="[A-Za-z]{3,10}" #prdNameInput="ngModel"
+          class="form-control" [class.is-valid]="prdNameInput.valid" [class.is-invalid]="prdNameInput.invalid" />
+        <!-- <span class="text-danger" [hidden]="prdNameInput.valid || prdNameInput.untouched">Product Name is Required and
+          at least 3 char or
+          max 10 char</span> -->
+        <span class="text-danger" [hidden]="prdNameInput.valid || prdNameInput.untouched"
+          *ngIf="prdNameInput.errors?.['required']">Product Name is Required </span>
+        <span class="text-danger" [hidden]="prdNameInput.valid || prdNameInput.untouched"
+          *ngIf="prdNameInput.errors?.['pattern']">Product Name at least 3 char or
+          max 10 char </span>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Unit Price</label>
+        <input type="text" required name="price" [(ngModel)]="prd.price" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Discount</label>
+        <input type="text" required name="discount" [(ngModel)]="prd.discount" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Quantity</label>
+        <input type="text" required class="form-control" name="quantity" [(ngModel)]="prd.quantity" />
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Category</label>
+        <select name="categoryID" id="categoryID" class="form-control" [(ngModel)]="prd.categoryID">
+          <option *ngFor="let item of cat" [value]="item.id">{{item.name}}</option>
+        </select>
+      </div>
+      <div class="form-group mt-3">
+        <input type="submit" value="Create" [disabled]="ProductFormRef.invalid" class="btn btn-primary" />
+      </div>
+
+    </form>
+    <!-- to test object <h1>{{prd|json}}</h1> -->
+  </div>
+</div>
