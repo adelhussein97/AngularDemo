@@ -1,0 +1,62 @@
+{
+  "Categories": [
+    {
+      "id": 1,
+      "name": "Mobiles"
+    },
+    {
+      "id": 2,
+      "name": "Laptop"
+    },
+    {
+      "id": 3,
+      "name": "TV"
+    }
+  ],
+  "Prodcuts": [
+    {
+      "id": 1,
+      "name": "Iphone",
+      "quantity": 5,
+      "price": 2200,
+      "categoryID": 1,
+      "purchaseDate": "new Date()",
+      "discount": 0.25,
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwCcvXPBEVKmWQVcczqPqjFIYMiuD0RI3HcJa2bq-j3A&s"
+    },
+    {
+      "id": 2,
+      "name": "Samsung",
+      "quantity": 1,
+      "price": 2000,
+      "categoryID": 2,
+      "purchaseDate": "new Date()",
+      "discount": 0,
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQbtypOQn3kxao-0u9NPXUoKZQMiJgE9rzXlUa3jmcE5wYJOQ9TINnZoWaCHpGgYcMzMhRhCraMtQ&usqp=CAc"
+    },
+    {
+      "name": "bgfbb",
+      "price": "hfhbvnv",
+      "discount": "nvbmv",
+      "quantity": "hfhfjnv",
+      "categoryID": "2",
+      "id": 3
+    },
+    {
+      "name": "Clothes",
+      "price": "500",
+      "discount": "25",
+      "quantity": "30",
+      "categoryID": "2",
+      "id": 4
+    },
+    {
+      "categoryID": "1",
+      "name": "phon",
+      "price": "200",
+      "discount": "25",
+      "quantity": "300",
+      "id": 5
+    }
+  ]
+}
